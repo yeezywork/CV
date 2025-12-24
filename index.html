@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denys Nemchyn — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #6A0DAD;
+      --secondary: #c90000;
+      --link-hover: #0D8A7D;
+      --text-primary: #2F2F2F;
+      --text-secondary: #555;
+      --bg: #fff;
+      --bg-alt: #f9f9f9;
+      --base-font: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; font-size: var(--base-font); color: var(--text-primary); background: var(--bg-alt); line-height: 1.3; padding: 10px; }
+    #resume { max-width: 800px; margin: auto; background: var(--bg); padding: 10px; border-radius: 4px; }
+    .btn-pdf { margin-bottom: 12px; background: var(--accent); color: #fff; border: none; padding: 6px 12px; font-size: 0.75rem; border-radius: 3px; cursor: pointer; }
+    header { text-align: center; margin-bottom: 12px; }
+    header h1 { font-weight: 700; font-size: 1.6rem; color: var(--accent); }
+    header p.subtitle { font-weight: 300; color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px; }
+    section { margin-bottom: 12px; page-break-inside: avoid; break-inside: avoid; }
+    section h2 { font-weight: 700; font-size: 1rem; border-bottom: 1px solid var(--accent); display: inline-block; margin-bottom: 6px; padding-bottom: 2px; color: var(--accent); }
+    section:nth-of-type(even) { background: rgba(117,55,212,0.08); padding: 6px; border-radius: 4px; }
+    h3 { font-weight: 700; font-size: 0.85rem; margin-top: 8px; margin-bottom: 4px; color: var(--secondary); }
+    h4 { font-weight: 700; font-size: 0.8rem; margin-top: 6px; margin-bottom: 4px; color: var(--text-primary); }
+    ul, ol { padding-left: 16px; margin-bottom: 8px; }
+    li { margin-bottom: 3px; color: var(--text-secondary); }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); transition: color 0.2s; }
+    a:hover { color: var(--link-hover); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .work-timeline { position: relative; padding-left: 20px; padding-top: 1.4em; }
+    .work-timeline::before { content: ''; position: absolute; left: 9px; top: 40px; bottom: 0; width: 2px; background: var(--secondary); }
+    .timeline-entry { position: relative; margin-bottom: 12px; padding-left: 24px; }
+    .timeline-entry::before { content: ''; position: absolute; left: 0.7em; top: calc(6px - 4px); width: 12px; height: 12px; border: 2px solid var(--secondary); background: var(--bg); border-radius: 50%; }
+    .work-grid-content { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    @media (max-width: 600px) { header h1 { font-size:1.4rem; } .two-col, .work-grid-content { grid-template-columns:1fr; } }
+  </style>
+
+</head>
+<body>
+  <div id="resume">
+    <header>
+      <h1>Denis Nemchyn</h1>
+
+<p>Dnipro, Ukraine</p>
+      <p class="subtitle">System Administrator | Jira Administrator</p>
+    </header>
+    <section>
+      <h2>Projects</h2>
+      <ol>
+        <li><strong>Enterprise NovaPay Payment Sync System</strong> — Production-ready 24/7 system syncing NovaPay payment API with Google Sheets. Multi-account architecture with intelligent deduplication, adaptive sync intervals, TOTP authentication, and automated token refresh. Deployed on Vultr cloud with systemd service. [Python, SOAP/Zeep, Google Sheets API, pyotp, SHA-256, systemd, cloud deployment]</li>
+        
+        <li><strong>Automated Email Lead Management System</strong> — Email parsing system processing leads from Tilda and Horoshop CMS platforms. Features XML feed parsing, Google Sheets integration for category detection, UTM extraction, duplicate checking via Supabase, and scheduled automation. [Python, IMAP, Supabase PostgreSQL, XML/CSV parsing, Google Sheets API, regex, schedule]</li>
+        
+        <li><strong>AI Image Upscaler Desktop Application</strong> — PyQt5 desktop app developed for content managers to batch-process product images for website. Enables parallel upscaling of 3-5 images simultaneously using Real-ESRGAN, significantly reducing image preparation time. Features auto-optimization for different hardware configurations (GPU VRAM/CPU detection), adaptive tiling, live preview with before/after comparison, and extreme optimization mode for low-end systems. [PyQt5, Real-ESRGAN, NCNN, PIL/Pillow, threading, concurrent.futures]</li>
+        
+        <li><strong>Gmail-Telegram Notification Bot</strong> — Telegram bot for real-time Gmail notifications. Monitors specific labels, extracts message snippets, sends formatted alerts to Telegram threads, and tracks processed messages. [Python, Gmail API, Telegram Bot API, OAuth2, JSON]</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Why me?</h2>
+      <p>Atlassian Administrator with 2+ years of hands-on experience in Jira Software, Jira Service Management, and Confluence. I specialize in setting up Jira from scratch, creating custom workflows, and implementing automation rules that reduce manual work. Successfully configured Jira for e-commerce teams, managed user permissions, and built dashboards for project visibility. My Python development background enables me to understand technical requirements and build automation solutions outside of Jira when needed. Experienced in training non-technical teams and translating business needs into Jira configurations. Passionate about process optimization and continuously learning new Atlassian features and best practices. Looking for a Junior/Middle Jira Administrator position where I can grow my expertise in Atlassian ecosystem, work with advanced features like ScriptRunner and Assets, and contribute to building efficient workflows for growing teams.
+</p>
+<h2 style="margin-top:5px;"> Atlassian Expertise</h2>
+<ul>
+<li>Jira Software / Jira Service Management: configuration, customization, workflows, issue types, screens</li>
+<li>Confluence: space structuring, knowledge base creation, documentation management</li>
+<li>Automation: Automation rules, notification schemes, scheduled triggers</li>
+<li>User Management: permissions, roles, groups, access controls</li>
+<li>Workflows: custom workflows, transitions, conditions, validators, post-functions</li>
+<li>Custom Fields: configuration, context management, field schemes</li>
+<li>Reporting: JQL queries, custom filters, basic dashboards, gadgets</li>
+<li>Admin for 10+ active projects in Jira</li>
+<li>Board Configuration: Scrum/Kanban boards, columns, swimlanes, card layouts</li>
+<li>Basic understanding of marketplace apps and plugins</li>
+<li>Eager to learn: ScriptRunner, Assets, Advanced Roadmaps, EasyBI</li>
+</ul>
+    </section>
+    <section>
+      <h2>Tech Skills</h2>
+      <div class="two-col">
+        <div>
+          <h3>Platforms &amp; Operating Systems</h3>
+          <ul>
+            <li>Windows (10/11, Server administration)</li>
+            <li>macOS (configuration &amp; administration)</li>
+            <li>Linux/Unix (Ubuntu, Debian; server administration, systemd)</li>
+          </ul>
+          <h3>Networking &amp; Infrastructure</h3>
+          <ul>
+            <li>Protocols &amp; Services: DHCP, DNS, VPN, SSH, TCP/IP, LAN/WLAN</li>
+            <li>Cloud Services: Vultr, DigitalOcean, domain management</li>
+            <li>Servers: deployment, monitoring, 24/7 uptime management</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Development &amp; Automation</h3>
+          <ul>
+            <li>Python (advanced): API integrations, automation, scripting</li>
+            <li>REST API, SOAP, OAuth2, webhook configuration</li>
+            <li>Automation tools: Zapier, n8n, ScriptRunner for Jira</li>
+            <li>Version control: Git, GitHub (integration with Jira)</li>
+          </ul>
+          <h3>Integration &amp; Tools</h3>
+          <ul>
+            <li>Google Workspace (Gmail, Sheets, Drive API)</li>
+            <li>Database: PostgreSQL, Supabase, MySQL</li>
+            <li>Web technologies: HTML, CSS, JavaScript, Flask</li>
+            <li>CMS platforms: WordPress, Horoshop, Tilda</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="work-timeline">
+      <h2>Work Experience</h2>
+      <div class="timeline-entry">
+        <h3>UA-MOTORS — Atlassian Administrator & System Automation, full-time (July 2023–Present)</h3>
+        <div class="work-grid-content">
+          <div>
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Set up and configured Jira boards for e-commerce content management team (10+ users)</li>
+              <li>Created custom workflows and automation rules for task management and notifications</li>
+              <li>Configured issue types, custom fields, screens, and notification schemes</li>
+              <li>Managed user permissions, roles, and access controls across projects</li>
+              <li>Built Confluence spaces for team documentation and knowledge base</li>
+              <li>Provided training and technical support for team members on Jira usage</li>
+              <li>Administered Google Workspace and coordinated integration with business tools</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Reduced manual task routing by implementing automation rules for common workflows</li>
+              <li>Created custom dashboards and JQL filters for team visibility and reporting</li>
+              <li>Successfully onboarded 10+ users to Jira with minimal disruption to daily operations</li>
+              <li>Improved workflow efficiency through optimized board configuration and filters</li>
+              <li>Developed Python automation scripts for business processes (external to Jira)</li>
+              <li>Maintained documentation in Confluence for all Jira processes and procedures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <h3>Self-employed — Jira Administrator & Atlassian Expert, part-time (March 2023–Present)</h3>
+        <div class="work-grid-content">
+          <div>
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Configured Jira Software and Jira Service Management for small businesses and teams</li>
+              <li>Set up custom workflows, issue types, and screens based on client requirements</li>
+              <li>Created automation rules for common business processes and notifications</li>
+              <li>Built Confluence spaces for documentation and knowledge management</li>
+              <li>Provided training sessions for teams on Jira basics and best practices</li>
+              <li>Managed user permissions and access controls for client projects</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Successfully set up Jira for 5+ clients across e-commerce, IT, and service industries</li>
+              <li>Created reusable workflow templates for common business scenarios</li>
+              <li>Helped clients reduce manual task tracking through basic automation rules</li>
+              <li>Built dashboards and filters using JQL for project visibility</li>
+              <li>Received positive feedback for clear explanations and practical approach</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <h3>LD SOFT — Python Developer & Android Developer, part-time (January 2024–January 2025)</h3>
+        <div class="work-grid-content">
+          <div>
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Developed Android application for retail product placement verification using YOLO object detection</li>
+              <li>Implemented planogram comparison system analyzing CCTV footage against ideal product layouts</li>
+              <li>Created Python backend services and Flask web applications for image processing</li>
+              <li>Built image processing tools (background removal, cropping, compression, upscaling)</li>
+              <li>Collaborated with frontend and backend developers in 5-person cross-functional team</li>
+              <li>Worked on startup project involving computer vision and retail automation</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Delivered functional Android application with YOLO integration for retail analytics</li>
+              <li>Developed planogram verification system identifying product placement errors automatically</li>
+              <li>Created image processing web tool with advanced background removal capabilities</li>
+              <li>Successfully transitioned project to another developer with comprehensive documentation</li>
+              <li>Gained experience in startup environment and cross-platform development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <h3>MOTO-M — System Administrator & Web Developer, full-time (October 2022–July 2023)</h3>
+        <div class="work-grid-content">
+          <div>
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Maintained and administered 5 company websites across multiple CMS platforms</li>
+              <li>Provided technical support for internal systems and workstations</li>
+              <li>Managed server infrastructure and monitoring systems</li>
+              <li>Developed automation scripts for routine system administration tasks</li>
+              <li>Configured and maintained internal tools and business applications</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Successfully maintained multi-platform infrastructure with 99.9% uptime</li>
+              <li>Automated backup and monitoring processes reducing manual work by 60%</li>
+              <li>Improved system reliability through proactive monitoring and maintenance</li>
+              <li>Built strong foundation in system administration leading to Atlassian specialization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <h3>VSEM — System Administrator & Tech Support, full-time (October 2021–October 2022)</h3>
+        <div class="work-grid-content">
+          <div>
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Provided technical support for end users and resolved hardware/software issues</li>
+              <li>Configured workstations: Windows, Linux, and macOS setup and administration</li>
+              <li>Performed computer repair, maintenance, and hardware upgrades</li>
+              <li>Troubleshot networking issues (TCP/IP) and connectivity problems</li>
+              <li>Managed service operations and documented technical procedures</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Built strong foundation in system administration and IT operations</li>
+              <li>Developed problem-solving and communication skills through user support</li>
+              <li>Gained hands-on experience with cross-platform system administration</li>
+              <li>Successfully transitioned from technical support to system administrator role</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Dnipro State Agrarian and Economic University</strong> — Bachelor's degree in Economics, September 2022–June 2026 | Dnipro, Ukraine</li>
+        <li><strong>Self-taught IT Professional</strong> — All Atlassian and technical skills acquired through self-study, Atlassian University courses, online training, and hands-on project work</li>
+      </ul>
+    </section>
+    <section>
+ <h2>Softskills</h2>
+<p style="text-align:center; margin-top:8px; font-weight:700; color:var(--text-primary);">Communication | Curiosity | Resilience | Fast learner | Proactive | Team Leadership | Problem Solving</p>
+      <h2>Contacts</h2>
+      <ul>
+        <li>Email: <a href="mailto:denisworksoft@gmail.com">denisworksoft@gmail.com</a></li>
+        <li>Telegram: <a href="https://t.me/yeezy4k">@yeezy4k</a></li>
+        <li>GitHub: <a href="https://github.com/yeezywork">yeezywork</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/denys-nemchyn/">Denis Nemchyn</a></li>
+      </ul>
+    </section>
+  </div>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const resume = document.getElementById('resume');
+      document.title = 'Denis Nemchyn — Resume';
+      // Generate PDF optimized
+      html2pdf().set({
+        margin: 0.1,
+        filename: 'Denis_Nemchyn_Jira_Administrator_Atlassian_Engineer_Resume.pdf',
+        html2canvas: { scale: 2 },
+        pagebreak: { mode: ['avoid-all', 'css'] }
+      }).from(resume).save();
+    });
+  </script>
+</body>
+</html>
