@@ -1,259 +1,507 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Denys Nemchyn — Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #6A0DAD;
-      --secondary: #c90000;
-      --link-hover: #0D8A7D;
-      --text-primary: #2F2F2F;
-      --text-secondary: #555;
-      --bg: #fff;
-      --bg-alt: #f9f9f9;
-      --base-font: 12px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; font-size: var(--base-font); color: var(--text-primary); background: var(--bg-alt); line-height: 1.3; padding: 10px; }
-    #resume { max-width: 800px; margin: auto; background: var(--bg); padding: 10px; border-radius: 4px; }
-    .btn-pdf { margin-bottom: 12px; background: var(--accent); color: #fff; border: none; padding: 6px 12px; font-size: 0.75rem; border-radius: 3px; cursor: pointer; }
-    header { text-align: center; margin-bottom: 12px; }
-    header h1 { font-weight: 700; font-size: 1.6rem; color: var(--accent); }
-    header p.subtitle { font-weight: 300; color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px; }
-    section { margin-bottom: 12px; page-break-inside: avoid; break-inside: avoid; }
-    section h2 { font-weight: 700; font-size: 1rem; border-bottom: 1px solid var(--accent); display: inline-block; margin-bottom: 6px; padding-bottom: 2px; color: var(--accent); }
-    section:nth-of-type(even) { background: rgba(117,55,212,0.08); padding: 6px; border-radius: 4px; }
-    h3 { font-weight: 700; font-size: 0.85rem; margin-top: 8px; margin-bottom: 4px; color: var(--secondary); }
-    h4 { font-weight: 700; font-size: 0.8rem; margin-top: 6px; margin-bottom: 4px; color: var(--text-primary); }
-    ul, ol { padding-left: 16px; margin-bottom: 8px; }
-    li { margin-bottom: 3px; color: var(--text-secondary); }
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); transition: color 0.2s; }
-    a:hover { color: var(--link-hover); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .work-timeline { position: relative; padding-left: 20px; padding-top: 1.4em; }
-    .work-timeline::before { content: ''; position: absolute; left: 9px; top: 40px; bottom: 0; width: 2px; background: var(--secondary); }
-    .timeline-entry { position: relative; margin-bottom: 12px; padding-left: 24px; }
-    .timeline-entry::before { content: ''; position: absolute; left: 0.7em; top: calc(6px - 4px); width: 12px; height: 12px; border: 2px solid var(--secondary); background: var(--bg); border-radius: 50%; }
-    .work-grid-content { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    @media (max-width: 600px) { header h1 { font-size:1.4rem; } .two-col, .work-grid-content { grid-template-columns:1fr; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denys Nemchyn — Atlassian Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a1f33;
+    --navy:#0c2d57;
+    --blue:#0052cc;
+    --blue-soft:#deebff;
+    --amber:#ff991f;
+    --amber-soft:#fff4e5;
+    --green:#1f845a;
+    --green-soft:#dcfff1;
+    --grey:#5a6b7b;
+    --line:#e3e8ee;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, #e8f0fe 0%, transparent 55%),
+      radial-gradient(900px 500px at -10% 10%, #eef4fc 0%, transparent 50%),
+      var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:32px 20px 60px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:20px;gap:16px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
+    font-size:13px;color:var(--grey);font-weight:600;letter-spacing:.5px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-soft)}
+
+  .switch{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:4px;box-shadow:0 4px 14px rgba(12,45,87,.06)}
+  .switch button{
+    font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px;
+    border:none;background:transparent;color:var(--grey);
+    padding:7px 16px;border-radius:999px;cursor:pointer;transition:.22s;letter-spacing:.5px}
+  .switch button.active{background:var(--navy);color:#fff;box-shadow:0 3px 10px rgba(12,45,87,.25)}
+  .switch button:not(.active):hover{color:var(--navy)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,#0c2d57 0%,#103a73 60%,#0052cc 130%);
+    border-radius:20px;padding:34px 36px 30px;color:#fff;position:relative;overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(12,45,87,.5)}
+  .hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;
+    background:radial-gradient(circle,rgba(255,153,31,.35),transparent 65%);pointer-events:none}
+  .hero h1{font-family:'Sora',sans-serif;font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1.1}
+  .hero .tag{font-family:'JetBrains Mono',monospace;font-size:13px;color:#9ec3ff;
+    margin-top:8px;font-weight:500;letter-spacing:.3px}
+  .hero .contacts{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:13.5px}
+  .hero .contacts a,.hero .contacts span{color:#dbe8ff;text-decoration:none;display:inline-flex;
+    align-items:center;gap:6px}
+  .hero .contacts a:hover{color:#fff}
+  .ic{width:15px;height:15px;flex-shrink:0;stroke:#9ec3ff;stroke-width:1.8;fill:none}
+
+  /* ---------- workflow signature ---------- */
+  .flow-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9ec3ff;
+    text-transform:uppercase;letter-spacing:1.5px;margin-top:24px;margin-bottom:10px;opacity:.9}
+  .flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;row-gap:8px}
+  .flow .st{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+    color:#eaf2ff;padding:5px 11px;border-radius:7px;white-space:nowrap}
+  .flow .st.live{background:var(--amber);border-color:var(--amber);color:#3d2600}
+  .flow .arr{color:#5e85c4;margin:0 7px;font-size:13px;font-weight:700}
+
+  /* ---------- layout ---------- */
+  .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+  .section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;box-shadow:0 6px 20px -12px rgba(12,45,87,.18)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+    text-transform:uppercase;letter-spacing:1.4px;color:var(--blue);
+    display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .eyebrow:before{content:"";width:22px;height:2px;background:var(--blue);border-radius:2px}
+
+  .summary p{font-size:14.5px;color:#243b52}
+  .summary strong{color:var(--navy);font-weight:600}
+
+  /* ---------- experience ---------- */
+  .job{padding:16px 0;border-top:1px solid var(--line)}
+  .job:first-of-type{border-top:none;padding-top:0}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .job-role{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--ink)}
+  .job-co{color:var(--blue);font-weight:700}
+  .job-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey);white-space:nowrap}
+  .job ul{list-style:none;margin-top:8px}
+  .job li{position:relative;padding-left:18px;font-size:13.7px;color:#33485f;margin-bottom:4px}
+  .job li:before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;
+    border-radius:1.5px;background:var(--blue);transform:rotate(45deg)}
+
+  /* highlighted Jira card */
+  .jira-card{margin-top:14px;background:linear-gradient(180deg,#f7faff,#eef5ff);
+    border:1px solid #cfe0fb;border-radius:12px;padding:16px 18px;position:relative}
+  .jira-card .pill{display:inline-flex;align-items:center;gap:7px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.5px;
+    background:var(--amber-soft);color:#9a5b00;border:1px solid #ffd9a0;
+    padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .jira-card .pill .blip{width:7px;height:7px;border-radius:50%;background:var(--amber)}
+  .jira-card h4{font-family:'Sora',sans-serif;font-size:14.5px;color:var(--navy);margin-bottom:8px}
+  .jira-card li:before{background:var(--amber)}
+
+  /* ---------- projects ---------- */
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .proj{border:1px solid var(--line);border-radius:11px;padding:13px 15px;transition:.2s;background:#fcfdff}
+  .proj:hover{border-color:#b9d3fb;transform:translateY(-2px);box-shadow:0 10px 22px -14px rgba(0,82,204,.4)}
+  .proj h4{font-family:'Sora',sans-serif;font-size:14px;color:var(--ink);margin-bottom:3px}
+  .proj p{font-size:12.5px;color:var(--grey);line-height:1.45}
+  .proj .stack{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
+  .proj .stack span{font-family:'JetBrains Mono',monospace;font-size:10px;color:#3d5b80;
+    background:var(--blue-soft);padding:2px 7px;border-radius:5px}
+
+  /* ---------- skills ---------- */
+  .skill-row{display:grid;grid-template-columns:160px 1fr;gap:14px;padding:9px 0;
+    border-top:1px solid var(--line);align-items:start}
+  .skill-row:first-child{border-top:none;padding-top:0}
+  .skill-k{font-family:'Sora',sans-serif;font-weight:600;font-size:13px;color:var(--navy)}
+  .skill-v{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12px;background:#eef3f9;color:#33485f;padding:3px 10px;border-radius:7px;
+    border:1px solid #e1e8f0}
+  .chip.key{background:var(--blue-soft);color:#0747a6;border-color:#b9d3fb;font-weight:600}
+  .chip.learn{background:var(--amber-soft);color:#9a5b00;border-color:#ffd9a0}
+  .chip.learn:before{content:"◷ ";opacity:.8}
+
+  /* ---------- bottom ---------- */
+  .bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .mini h4{font-family:'Sora',sans-serif;font-size:13.5px;color:var(--ink)}
+  .mini p{font-size:13px;color:var(--grey);margin-top:3px}
+  .langbar{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .lang{display:flex;align-items:center;gap:10px;font-size:13px}
+  .lang .nm{width:78px;color:var(--ink);font-weight:500}
+  .lang .track{flex:1;height:6px;background:#eef2f7;border-radius:99px;overflow:hidden}
+  .lang .fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--navy));border-radius:99px}
+
+  .foot{text-align:center;margin-top:26px;font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;color:var(--grey)}
+  .foot button{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+    background:var(--navy);color:#fff;border:none;padding:9px 18px;border-radius:9px;cursor:pointer;
+    margin-bottom:14px;transition:.2s;box-shadow:0 6px 16px -6px rgba(12,45,87,.5)}
+  .foot button:hover{background:#0747a6;transform:translateY(-1px)}
+
+  [data-lang]{display:none!important}
+  body[data-active="uk"] [data-lang="uk"]{display:revert!important}
+  body[data-active="en"] [data-lang="en"]{display:revert!important}
+  /* keep flex display correct when the toggled element is a flex container */
+  body[data-active="uk"] .skill-v[data-lang="uk"],
+  body[data-active="en"] .skill-v[data-lang="en"],
+  body[data-active="uk"] .stack[data-lang="uk"],
+  body[data-active="en"] .stack[data-lang="en"]{display:flex!important}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:.6s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:680px){
+    body{padding:18px 12px 40px}
+    .hero{padding:26px 22px}
+    .hero h1{font-size:27px}
+    .projects{grid-template-columns:1fr}
+    .bottom{grid-template-columns:1fr}
+    .skill-row{grid-template-columns:1fr;gap:5px}
+    .job-meta{white-space:normal}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}}
+
+  /* ---------- print ---------- */
+  @media print{
+    body{background:#fff;padding:0;font-size:11px}
+    .switch,.brand,.foot{display:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero{box-shadow:none;border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .section,.proj,.jira-card,.chip,.flow .st{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .wrap{max-width:100%}
+    .section{box-shadow:none;break-inside:avoid}
+    .job,.jira-card,.proj{break-inside:avoid}
+  }
+</style>
 </head>
-<body>
-  <div id="resume">
-    <button id="btn-download" class="btn-pdf">Download PDF</button>
-    <header>
-      <h1>Denys Nemchyn</h1>
-      <p>Dnipro, Ukraine</p>
-      <p class="subtitle">System Administrator | Jira Administrator | Python Developer</p>
-    </header>
-    <section>
-      <h2>Projects</h2>
-      <ol>
-        <li><strong>Enterprise NovaPay Payment Sync System</strong> — Production-ready 24/7 system syncing NovaPay payment API with Google Sheets. Multi-account architecture with intelligent deduplication, adaptive sync intervals, TOTP authentication, and automated token refresh. Deployed on Vultr cloud with systemd service. [Python, SOAP/Zeep, Google Sheets API, pyotp, SHA-256, systemd, cloud deployment]</li>
-        <li><strong>Automated Email Lead Management System</strong> — Email parsing system processing leads from Tilda and Horoshop CMS platforms. Features XML feed parsing, Google Sheets integration for category detection, UTM extraction, duplicate checking via Supabase, and scheduled automation. [Python, IMAP, Supabase PostgreSQL, XML/CSV parsing, Google Sheets API, regex, schedule]</li>
-        <li><strong>AI Image Upscaler Desktop Application</strong> — PyQt5 desktop app developed for content managers to batch-process product images for website. Enables parallel upscaling of 3-5 images simultaneously using Real-ESRGAN, significantly reducing image preparation time. Features auto-optimization for different hardware configurations (GPU VRAM/CPU detection), adaptive tiling, live preview with before/after comparison, and extreme optimization mode for low-end systems. [PyQt5, Real-ESRGAN, NCNN, PIL/Pillow, threading, concurrent.futures]</li>
-        <li><strong>Gmail-Telegram Notification Bot</strong> — Telegram bot for real-time Gmail notifications. Monitors specific labels, extracts message snippets, sends formatted alerts to Telegram threads, and tracks processed messages. [Python, Gmail API, Telegram Bot API, OAuth2, JSON]</li>
-      </ol>
-    </section>
-    <section>
-      <h2>Why me?</h2>
-      <p>Atlassian Administrator with 2+ years of hands-on experience in Jira Software, Jira Service Management, and Confluence. I specialize in setting up Jira from scratch, creating custom workflows, and implementing automation rules that reduce manual work. Successfully configured Jira for e-commerce teams, managed user permissions, and built dashboards for project visibility. My Python development background enables me to understand technical requirements and build automation solutions outside of Jira when needed. Experienced in training non-technical teams and translating business needs into Jira configurations. Passionate about process optimization and continuously learning new Atlassian features and best practices. Looking for a Junior/Middle Jira Administrator position where I can grow my expertise in Atlassian ecosystem, work with advanced features like ScriptRunner and Assets, and contribute to building efficient workflows for growing teams.</p>
-      <h2 style="margin-top:5px;">Atlassian Expertise</h2>
-      <ul>
-        <li>Jira Software / Jira Service Management: configuration, customization, workflows, issue types, screens</li>
-        <li>Confluence: space structuring, knowledge base creation, documentation management</li>
-        <li>Automation: Automation rules, notification schemes, scheduled triggers</li>
-        <li>User Management: permissions, roles, groups, access controls</li>
-        <li>Workflows: custom workflows, transitions, conditions, validators, post-functions</li>
-        <li>Custom Fields: configuration, context management, field schemes</li>
-        <li>Reporting: JQL queries, custom filters, basic dashboards, gadgets</li>
-        <li>Admin for 10+ active projects in Jira</li>
-        <li>Board Configuration: Scrum/Kanban boards, columns, swimlanes, card layouts</li>
-        <li>Basic understanding of marketplace apps and plugins</li>
-        <li>Eager to learn: ScriptRunner, Assets, Advanced Roadmaps, EasyBI</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Tech Skills</h2>
-      <div class="two-col">
-        <div>
-          <h3>Platforms &amp; Operating Systems</h3>
-          <ul>
-            <li>Windows (10/11, Server administration)</li>
-            <li>macOS (configuration &amp; administration)</li>
-            <li>Linux/Unix (Ubuntu, Debian; server administration, systemd)</li>
-          </ul>
-          <h3>Networking &amp; Infrastructure</h3>
-          <ul>
-            <li>Protocols &amp; Services: DHCP, DNS, VPN, SSH, TCP/IP, LAN/WLAN</li>
-            <li>Cloud Services: Vultr, DigitalOcean, domain management</li>
-            <li>Servers: deployment, monitoring, 24/7 uptime management</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Development &amp; Automation</h3>
-          <ul>
-            <li>Python (advanced): API integrations, automation, scripting</li>
-            <li>REST API, SOAP, OAuth2, webhook configuration</li>
-            <li>Automation tools: Zapier, n8n, ScriptRunner for Jira</li>
-            <li>Version control: Git, GitHub (integration with Jira)</li>
-          </ul>
-          <h3>Integration &amp; Tools</h3>
-          <ul>
-            <li>Google Workspace (Gmail, Sheets, Drive API)</li>
-            <li>Database: PostgreSQL, Supabase, MySQL</li>
-            <li>Web technologies: HTML, CSS, JavaScript, Flask</li>
-            <li>CMS platforms: WordPress, Horoshop, Tilda</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="work-timeline">
-      <h2>Work Experience</h2>
-      <div class="timeline-entry">
-        <h3>UA-MOTORS — Atlassian Administrator &amp; Python Developer, full-time (July 2023–Present)</h3>
-        <div class="work-grid-content">
-          <div>
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Set up and configured Jira boards for e-commerce content management team (10+ users)</li>
-              <li>Created custom workflows and automation rules for task management and notifications</li>
-              <li>Configured issue types, custom fields, screens, and notification schemes</li>
-              <li>Managed user permissions, roles, and access controls across projects</li>
-              <li>Built Confluence spaces for team documentation and knowledge base</li>
-              <li>Provided training and technical support for team members on Jira usage</li>
-              <li>Administered Google Workspace and coordinated integration with business tools</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Achievements</h4>
-            <ul>
-              <li>Reduced manual task routing by implementing automation rules for common workflows</li>
-              <li>Created custom dashboards and JQL filters for team visibility and reporting</li>
-              <li>Successfully onboarded 10+ users to Jira with minimal disruption to daily operations</li>
-              <li>Improved workflow efficiency through optimized board configuration and filters</li>
-              <li>Built Enterprise NovaPay Payment Sync System — 24/7 production service syncing payment data across multiple accounts to Google Sheets via Supabase</li>
-              <li>Built Automated Email Lead Management System — multi-site email parser processing orders from Tilda and Horoshop into Supabase with Google Sheets integration</li>
-              <li>Currently developing UTM Tracking System for end-to-end click-ID attribution (fbclid/gclid) into CRM</li>
-              <li>Maintained documentation in Confluence for all Jira processes and procedures</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="timeline-entry">
-        <h3>LD SOFT — Python Developer &amp; Android Developer, part-time (January 2024–January 2025)</h3>
-        <div class="work-grid-content">
-          <div>
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Developed Android application for retail product placement verification using YOLO object detection</li>
-              <li>Implemented planogram comparison system analyzing CCTV footage against ideal product layouts</li>
-              <li>Created Python backend services and Flask web applications for image processing</li>
-              <li>Built image processing tools (background removal, cropping, compression, upscaling)</li>
-              <li>Collaborated with frontend and backend developers in 5-person cross-functional team</li>
-              <li>Worked on startup project involving computer vision and retail automation</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Achievements</h4>
-            <ul>
-              <li>Delivered functional Android application with YOLO integration for retail analytics</li>
-              <li>Developed planogram verification system identifying product placement errors automatically</li>
-              <li>Created image processing web tool with advanced background removal capabilities</li>
-              <li>Successfully transitioned project to another developer with comprehensive documentation</li>
-              <li>Gained experience in startup environment and cross-platform development</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="timeline-entry">
-        <h3>MOTO-M — System Administrator &amp; Web Developer, full-time (October 2022–July 2023)</h3>
-        <div class="work-grid-content">
-          <div>
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Maintained and administered 5 company websites across multiple CMS platforms</li>
-              <li>Provided technical support for internal systems and workstations</li>
-              <li>Managed server infrastructure and monitoring systems</li>
-              <li>Developed automation scripts for routine system administration tasks</li>
-              <li>Configured and maintained internal tools and business applications</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Achievements</h4>
-            <ul>
-              <li>Successfully maintained multi-platform infrastructure with 99.9% uptime</li>
-              <li>Automated backup and monitoring processes reducing manual work by 60%</li>
-              <li>Improved system reliability through proactive monitoring and maintenance</li>
-              <li>Built strong foundation in system administration leading to Atlassian specialization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="timeline-entry">
-        <h3>VSEM — System Administrator &amp; Tech Support, full-time (October 2021–October 2022)</h3>
-        <div class="work-grid-content">
-          <div>
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Provided technical support for end users and resolved hardware/software issues</li>
-              <li>Configured workstations: Windows, Linux, and macOS setup and administration</li>
-              <li>Performed computer repair, maintenance, and hardware upgrades</li>
-              <li>Troubleshot networking issues (TCP/IP) and connectivity problems</li>
-              <li>Managed service operations and documented technical procedures</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Achievements</h4>
-            <ul>
-              <li>Built strong foundation in system administration and IT operations</li>
-              <li>Developed problem-solving and communication skills through user support</li>
-              <li>Gained hands-on experience with cross-platform system administration</li>
-              <li>Successfully transitioned from technical support to system administrator role</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Dnipro State Agrarian and Economic University</strong> — Bachelor's degree in Economics, September 2022–June 2026 | Dnipro, Ukraine</li>
-        <li><strong>Self-taught IT Professional</strong> — All Atlassian and technical skills acquired through self-study, Atlassian University courses, online training, and hands-on project work</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Softskills</h2>
-      <p style="text-align:center; margin-top:8px; font-weight:700; color:var(--text-primary);">Communication | Curiosity | Resilience | Fast learner | Proactive | Team Leadership | Problem Solving</p>
-      <h2>Contacts</h2>
-      <ul>
-        <li>Email: <a href="mailto:denisworksoft@gmail.com">denisworksoft@gmail.com</a></li>
-        <li>Telegram: <a href="https://t.me/yeezy4k">@yeezy4k</a></li>
-        <li>GitHub: <a href="https://github.com/yeezywork">yeezywork</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/denys-nemchyn/">Denys Nemchyn</a></li>
-      </ul>
-    </section>
+<body data-active="uk">
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span><span>OPEN&nbsp;TO&nbsp;WORK</span></div>
+    <div class="switch" role="group" aria-label="Language">
+      <button id="btn-uk" class="active" onclick="setLang('uk')">УКР</button>
+      <button id="btn-en" onclick="setLang('en')">ENG</button>
+    </div>
   </div>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-  <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('btn-download');
-      btn.addEventListener('click', () => {
-        const resume = document.getElementById('resume');
-        html2pdf().set({
-          margin: 0.1,
-          filename: 'Denys_Nemchyn_Jira_Administrator_Atlassian_Engineer_Resume.pdf',
-          html2canvas: { scale: 2 },
-          pagebreak: { mode: ['avoid-all', 'css'] }
-        }).from(resume).save();
-      });
-    });
-  </script>
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <h1 data-lang="uk">Денис Немчин</h1>
+    <h1 data-lang="en">Denys Nemchyn</h1>
+    <div class="tag" data-lang="uk">Atlassian Developer · Integration Developer · Backend</div>
+    <div class="tag" data-lang="en">Atlassian Developer · Integration Developer · Backend</div>
+
+    <div class="contacts">
+      <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="loc" data-lang="uk">Дніпро, Україна</span><span class="loc" data-lang="en">Dnipro, Ukraine</span></span>
+      <a href="tel:+380664904470"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a12 12 0 005 5l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>+38 066 490 44 70</a>
+      <a href="mailto:denisworksoft@gmail.com"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>denisworksoft@gmail.com</a>
+      <a href="https://t.me/yeezy4k"><svg class="ic" viewBox="0 0 24 24"><path d="M21 5L3 12l5 2 2 5 3-4 4 3z"/></svg>@yeezy4k</a>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- SUMMARY -->
+    <section class="section summary reveal">
+      <div class="eyebrow" data-lang="uk">Про себе</div>
+      <div class="eyebrow" data-lang="en">Summary</div>
+      <p data-lang="uk">Розробник із фокусом на Atlassian-рішеннях, автоматизації та інтеграціях. Адмініструю та допрацьовую <strong>Jira</strong> — workflows, екрани й схеми полів, issue types, <strong>Automation Rules</strong>, <strong>JQL</strong> — і будую інтеграції Jira із зовнішніми системами через <strong>REST API</strong>. Поєдную це із сильним інженерним бекграундом: Python-автоматизація, REST/SOAP-інтеграції, SQL/PostgreSQL і системне адміністрування (права доступу, підтримка систем).</p>
+      <p data-lang="en">Developer focused on Atlassian solutions, automation, and integrations. I administer and extend <strong>Jira</strong> — workflows, screens and field schemes, issue types, <strong>Automation Rules</strong>, <strong>JQL</strong> — and build integrations between Jira and external systems over <strong>REST API</strong>. I bring this together with a solid engineering background: Python automation, REST/SOAP integrations, SQL/PostgreSQL, and system administration (access rights, systems support).</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section reveal">
+      <div class="eyebrow" data-lang="uk">Досвід роботи</div>
+      <div class="eyebrow" data-lang="en">Experience</div>
+
+      <!-- UA-MOTORS dev -->
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role"><span class="job-co">UA-MOTORS</span> — <span data-lang="uk">Розробник (Python / Fullstack) / Jira Administrator</span><span data-lang="en">Developer (Python / Fullstack) / Jira Administrator</span></div>
+          <div class="job-meta"><span data-lang="uk">Лип 2025 — по т.ч. · Дніпро</span><span data-lang="en">Jul 2025 — Present · Dnipro</span></div>
+        </div>
+        <ul data-lang="uk">
+          <li>Розробка та підтримка автоматизованих скриптів і мікросервісів на Python; інтеграції з Google Sheets API, Telegram Bot API та зовнішніми сервісами через REST API</li>
+          <li>Участь у розробці внутрішньої e-commerce платформи OmniStock (backend, frontend, інтеграційна логіка, моделювання даних)</li>
+          <li>Робота з PostgreSQL, Prisma, Supabase; налаштування AI-assisted development workflow (MCP-сервери, Claude Code, Codex)</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Develop and maintain automated Python scripts and microservices; integrations with Google Sheets API, Telegram Bot API and third-party services over REST API</li>
+          <li>Contribute to the internal e-commerce platform OmniStock (backend, frontend, integration logic, data modeling)</li>
+          <li>Work with PostgreSQL, Prisma, Supabase; configure AI-assisted development workflow (MCP servers, Claude Code, Codex)</li>
+        </ul>
+
+        <div class="jira-card">
+          <h4 data-lang="uk">Адміністрування та розробка в Jira</h4>
+          <h4 data-lang="en">Jira administration &amp; development</h4>
+          <ul data-lang="uk">
+            <li>Впровадив Jira для контент-команди з 6 осіб, яка вела задачі в Telegram без відстеження статусів і статистики; налаштовував і дороблював протягом кількох місяців</li>
+            <li>Налаштував issue types під операції (новий товар / характеристики / опис / заміна фото) та issue type scheme; екрани й схеми полів під типи задач</li>
+            <li>Automation Rules: auto-assign виконавця за типом задачі (trigger → condition → action); ескалація завислих задач через Scheduled-правило + JQL</li>
+            <li>Інтеграція з Telegram: сповіщення керівнику при переході на ревʼю (webhook → сервіс на FastAPI → Telegram Bot API за chat_id)</li>
+            <li>Налаштування прав доступу та схем дозволів (permission schemes) під ролі відділу</li>
+            <li>Налаштування дашбордів і фільтрів для керівництва — потік і статистика в реальному часі, без ручного збору звітів</li>
+            <li>Jira Service Management: сервісний процес прийому й погодження заявок на оплату (рахунки, закупівлі, послуги, виплати) — портал, типи запитів (request types) із власними формами, workflow з етапом погодження керівником, черги для бухгалтерії та SLA на терміни обробки; структурована точка входу замість розрізнених звернень у Telegram</li>
+            <li>JSM-приймання звернень від роздрібних точок (помилки контенту на сайті: фото, характеристики, опис) з маршрутизацією у контент-проект — наскрізний потік від заявки до виконання через linked issue / Automation Rules; черги на JQL, SLA за пріоритетами, база знань для типових звернень</li>
+            <li>Перевів контент-команду з ~6 осіб із трекінгу в Telegram на єдиний процес у Jira. Результат: час розподілу задач скоротився з ~1 дня до кількох хвилин (auto-assign замість ручного призначення); втрата задач у переписці зникла (~0 загублених проти регулярних раніше); прозорість завантаження в реальному часі скоротила час підготовки звітів для керівника приблизно на 40%; середній час проходження задачі від заявки до закриття зменшився орієнтовно на 25–30% за рахунок структурованого workflow та етапу ревʼю</li>
+          </ul>
+          <ul data-lang="en">
+            <li>Implemented Jira for a 6-person content team that tracked tasks in Telegram with no status tracking or statistics; configured and refined it over several months</li>
+            <li>Configured issue types for operations (new product / specs / description / photo replacement) and an issue type scheme; screens and field schemes per issue type</li>
+            <li>Automation Rules: auto-assign by issue type (trigger → condition → action); escalation of stale tasks via a Scheduled rule + JQL</li>
+            <li>Telegram integration: notify the manager on transition to review (webhook → FastAPI service → Telegram Bot API by chat_id)</li>
+            <li>Configured access rights and permission schemes aligned to department roles</li>
+            <li>Built dashboards and filters for management — real-time flow and statistics with no manual report gathering</li>
+            <li>Jira Service Management: a service process for submitting and approving payment requests (invoices, purchases, services, payouts) — portal, request types with custom forms, a workflow with a manager approval step, queues for finance and SLAs on handling time; a structured entry point instead of scattered Telegram requests</li>
+            <li>JSM intake of requests from retail points (website content errors: photos, specs, descriptions) routed into the content project — an end-to-end flow from request to fulfillment via linked issues / Automation Rules; JQL-based queues, priority SLAs, and a knowledge base for common requests</li>
+            <li>Migrated a ~6-person content team from Telegram tracking to a single Jira process. Impact: task dispatch time dropped from ~1 day to minutes (auto-assign instead of manual assignment); lost-in-chat tasks eliminated (~0 vs. regular losses before); real-time workload transparency cut the manager's report-prep time by ~40%; average task lead time from request to closure reduced by an estimated 25–30% thanks to a structured workflow and a review stage</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CHAINFLOW startup -->
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role"><span class="job-co">Chainflow</span> — <span data-lang="uk">Jira / Atlassian Consultant</span><span data-lang="en">Jira / Atlassian Consultant</span></div>
+          <div class="job-meta"><span data-lang="uk">Серп 2025 — по т.ч. · Remote (part-time)</span><span data-lang="en">Aug 2025 — Present · Remote (part-time)</span></div>
+        </div>
+        <ul data-lang="uk">
+          <li>Налаштував Jira з нуля для продуктової команди крипто-сервісу (розробники + QA + дизайнери): проекти, дошки, робочі процеси та схеми полів під реальний процес розробки</li>
+          <li>Scrum-процес для девелоперів: беклог, спринти; задачі від продакт-менеджменту проходили свій воркфлоу й потім потрапляли у беклог розробки, з саб-задачами під дизайн</li>
+          <li>QA-процес через компоненти: після статусу тестування створювалася баг-репорт задача (issue type Bug) з тим самим компонентом, привязана до батьківської задачі за фічею й призначена на відповідального розробника</li>
+          <li>Automation Rules під ці процеси; звітність і дашборди для керівництва щодо стану розробки</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Set up Jira from scratch for a crypto product team (developers + QA + designers): projects, boards, workflows and field schemes matching a real development process</li>
+          <li>Scrum process for developers: backlog, sprints; tasks from product management ran their own workflow, then dropped into the dev backlog, with design sub-tasks</li>
+          <li>QA process via components: after the testing status a Bug issue was created with the same component, linked to the parent task by feature and assigned to the responsible developer</li>
+          <li>Automation Rules for these processes; reporting and dashboards for management on development status</li>
+        </ul>
+      </div>
+
+      <!-- LD SOFT -->
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role"><span class="job-co">LD SOFT</span> — <span>Python &amp; Android Developer</span></div>
+          <div class="job-meta"><span data-lang="uk">Січ 2024 — Лип 2025 · Дніпро (part-time)</span><span data-lang="en">Jan 2024 — Jul 2025 · Dnipro (part-time)</span></div>
+        </div>
+        <ul data-lang="uk">
+          <li>Android-застосунок для верифікації розкладки товарів на базі YOLO object detection; система порівняння планограм (CCTV vs. еталон)</li>
+          <li>Python backend-сервіси та Flask-застосунки для обробки зображень; команда з 5 осіб, передача проєкту з документацією</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Android app for retail planogram verification using YOLO object detection; planogram comparison system (CCTV vs. ideal layout)</li>
+          <li>Python backend services and Flask apps for image processing; 5-person team, project handed off with full documentation</li>
+        </ul>
+      </div>
+
+      <!-- UA-MOTORS sysadmin -->
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role"><span class="job-co">UA-MOTORS</span> — <span>System Administrator &amp; Web Developer</span></div>
+          <div class="job-meta"><span data-lang="uk">Жов 2023 — Січ 2025 · Дніпро</span><span data-lang="en">Oct 2023 — Jan 2025 · Dnipro</span></div>
+        </div>
+        <ul data-lang="uk">
+          <li>Адміністрування та підтримка 5 корпоративних сайтів на різних CMS; технічна підтримка внутрішніх систем і робочих станцій</li>
+          <li>Управління серверною інфраструктурою та моніторингом; автоматизація бекапів і моніторингу — зниження ручної роботи на 60%</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Administered and maintained 5 company websites across multiple CMS; technical support for internal systems and workstations</li>
+          <li>Managed server infrastructure and monitoring; reduced manual backup and monitoring work by 60% through automation</li>
+        </ul>
+      </div>
+
+      <!-- VSEM -->
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role"><span class="job-co">VSEM</span> — <span>System Administrator &amp; Tech Support</span></div>
+          <div class="job-meta"><span data-lang="uk">Жов 2022 — Жов 2023 · Дніпро</span><span data-lang="en">Oct 2022 — Oct 2023 · Dnipro</span></div>
+        </div>
+        <ul data-lang="uk">
+          <li>Технічна підтримка користувачів; налаштування робочих станцій (Windows, Linux, macOS); діагностика мережі (TCP/IP)</li>
+        </ul>
+        <ul data-lang="en">
+          <li>End-user technical support; workstation configuration (Windows, Linux, macOS); network diagnostics (TCP/IP)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section reveal">
+      <div class="eyebrow" data-lang="uk">Проєкти</div>
+      <div class="eyebrow" data-lang="en">Projects</div>
+      <div class="projects">
+        <div class="proj">
+          <h4 data-lang="uk">Сквозна аналітика — дашборд</h4>
+          <h4 data-lang="en">Cross-Channel Analytics Dashboard</h4>
+          <p data-lang="uk">Дашборд відстеження лідів і продажів за UTM-мітками: заявки, виручка, маржа, середній чек; воронка GA4 → обращення → замовлення та розподіл джерел трафіку.</p>
+          <p data-lang="en">Lead and sales tracking dashboard by UTM tags: orders, revenue, margin, average check; GA4 → leads → orders funnel and traffic-source breakdown.</p>
+          <div class="stack"><span>Python</span><span>GA4</span><span>UTM</span><span>REST API</span><span>PostgreSQL</span></div>
+        </div>
+        <div class="proj">
+          <h4>OmniStock</h4>
+          <p data-lang="uk">Модульна e-commerce платформа: товари, постачальники, прайс-листи, ролі доступу.</p>
+          <p data-lang="en">Modular e-commerce platform: products, suppliers, price lists, access roles.</p>
+          <div class="stack"><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>Prisma</span><span>PostgreSQL</span><span>React</span></div>
+        </div>
+        <div class="proj">
+          <h4>NovaPay Sync</h4>
+          <p data-lang="uk">Production-система 24/7 синхронізації API NovaPay з Google Sheets: мультиакаунт, TOTP, дедублікація.</p>
+          <p data-lang="en">Production 24/7 system syncing NovaPay API with Google Sheets: multi-account, TOTP, deduplication.</p>
+          <div class="stack"><span>Python</span><span>SOAP/Zeep</span><span>pyotp</span><span>systemd</span></div>
+        </div>
+        <div class="proj">
+          <h4>Email Lead Management</h4>
+          <p data-lang="uk">Парсинг лідів з Tilda та Horoshop: XML-фіди, UTM, дедублікація через Supabase.</p>
+          <p data-lang="en">Lead parsing from Tilda and Horoshop: XML feeds, UTM, Supabase deduplication.</p>
+          <div class="stack"><span>Python</span><span>IMAP</span><span>Supabase</span><span>PostgreSQL</span></div>
+        </div>
+        <div class="proj">
+          <h4>Gmail → Telegram Bot</h4>
+          <p data-lang="uk">Сповіщення з Gmail у реальному часі: моніторинг міток, відправка у треди.</p>
+          <p data-lang="en">Real-time Gmail notifications: label monitoring, formatted alerts to threads.</p>
+          <div class="stack"><span>Python</span><span>Gmail API</span><span>Telegram Bot API</span><span>OAuth2</span></div>
+        </div>
+        <div class="proj">
+          <h4>Jira → Telegram Bot</h4>
+          <p data-lang="uk">Сповіщення з Jira у Telegram за подіями задач: приймає webhook, форматує повідомлення й шле керівнику за chat_id у потрібний тред.</p>
+          <p data-lang="en">Jira-to-Telegram notifications on issue events: receives a webhook, formats the message and sends it to the manager by chat_id into the right thread.</p>
+          <div class="stack"><span>Python</span><span>FastAPI</span><span>Jira webhooks</span><span>Telegram Bot API</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section reveal">
+      <div class="eyebrow" data-lang="uk">Навички</div>
+      <div class="eyebrow" data-lang="en">Skills</div>
+
+      <div class="skill-row">
+        <div class="skill-k">Atlassian / Jira</div>
+        <div class="skill-v">
+          <span class="chip key">Jira workflows</span><span class="chip key">Screens &amp; field schemes</span><span class="chip key">Issue types</span><span class="chip key">JQL</span><span class="chip key">Jira REST API</span><span class="chip key">Jira Service Management</span><span class="chip key">SLA / Queues</span><span class="chip">Kanban</span><span class="chip">Confluence</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">У фокусі</span><span data-lang="en">Focus</span></div>
+        <div class="skill-v">
+          <span class="chip learn">ScriptRunner</span><span class="chip learn">Groovy</span><span class="chip learn">Assets (JSM)</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">Інтеграції / API</span><span data-lang="en">Integrations / API</span></div>
+        <div class="skill-v">
+          <span class="chip">REST API</span><span class="chip">SOAP/Zeep</span><span class="chip">webhooks</span><span class="chip">FastAPI</span><span class="chip">Google Sheets API</span><span class="chip">Gmail API</span><span class="chip">Telegram Bot API</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">Мови</span><span data-lang="en">Languages</span></div>
+        <div class="skill-v">
+          <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">SQL</span><span class="chip">Bash</span><span class="chip learn">Groovy</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">Бази даних</span><span data-lang="en">Databases</span></div>
+        <div class="skill-v">
+          <span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">Supabase</span><span class="chip">Prisma</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k">Frontend</div>
+        <div class="skill-v">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Tailwind</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">Backend / Інфра</span><span data-lang="en">Backend / Infra</span></div>
+        <div class="skill-v">
+          <span class="chip">Node.js</span><span class="chip">Fastify</span><span class="chip">Flask</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">systemd</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-k"><span data-lang="uk">Адміністрування</span><span data-lang="en">Administration</span></div>
+        <div class="skill-v">
+          <span class="chip" data-lang="uk">Права доступу</span><span class="chip" data-lang="en">Access rights</span><span class="chip" data-lang="uk">Технічна підтримка</span><span class="chip" data-lang="en">Technical support</span><span class="chip" data-lang="uk">Моніторинг</span><span class="chip" data-lang="en">Monitoring</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION + LANGUAGES -->
+    <section class="section reveal">
+      <div class="bottom">
+        <div class="mini">
+          <div class="eyebrow" data-lang="uk">Освіта</div>
+          <div class="eyebrow" data-lang="en">Education</div>
+          <h4 data-lang="uk">Дніпровський державний аграрно-економічний університет</h4>
+          <h4 data-lang="en">Dnipro State Agrarian and Economic University</h4>
+          <p data-lang="uk">Бакалавр · Економіка · 2026</p>
+          <p data-lang="en">Bachelor's Degree · Economics · 2026</p>
+        </div>
+        <div class="mini">
+          <div class="eyebrow" data-lang="uk">Мови</div>
+          <div class="eyebrow" data-lang="en">Languages</div>
+          <div class="langbar">
+            <div class="lang"><span class="nm" data-lang="uk">Українська</span><span class="nm" data-lang="en">Ukrainian</span><div class="track"><div class="fill" style="width:100%"></div></div></div>
+            <div class="lang"><span class="nm" data-lang="uk">Російська</span><span class="nm" data-lang="en">Russian</span><div class="track"><div class="fill" style="width:100%"></div></div></div>
+            <div class="lang"><span class="nm" data-lang="uk">Англійська</span><span class="nm" data-lang="en">English</span><div class="track"><div class="fill" style="width:55%"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey)">B1</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="foot">
+    <div data-lang="uk">Денис Немчин · Atlassian Developer · 2026</div>
+    <div data-lang="en">Denys Nemchyn · Atlassian Developer · 2026</div>
+  </div>
+
+</div>
+
+<script>
+  function setLang(l){
+    document.body.setAttribute('data-active', l);
+    document.documentElement.lang = l;
+    document.getElementById('btn-uk').classList.toggle('active', l==='uk');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    try{ localStorage.setItem('cv-lang', l); }catch(e){}
+  }
+  (function(){
+    let saved='uk';
+    try{ saved = localStorage.getItem('cv-lang') || 'uk'; }catch(e){}
+    setLang(saved);
+  })();
+
+  // scroll reveal
+  const els=[...document.querySelectorAll('.reveal')];
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.08, rootMargin:'0px 0px -5% 0px'});
+    els.forEach((el,i)=>{ el.style.transitionDelay=Math.min(i*60,300)+'ms'; io.observe(el); });
+  } else { els.forEach(el=>el.classList.add('in')); }
+  // safety: never leave anything hidden (also covers print/full-page capture)
+  setTimeout(()=>els.forEach(el=>el.classList.add('in')), 1200);
+  window.addEventListener('beforeprint',()=>els.forEach(el=>el.classList.add('in')));
+</script>
 </body>
 </html>
